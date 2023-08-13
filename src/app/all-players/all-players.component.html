@@ -1,0 +1,10 @@
+<p>all-players works!</p>
+<ul class="players">
+    <li *ngFor="let player of players">
+      <a routerLink="/detail/{{player.playerId}}">
+        <span class="badge">{{player.playerId}}</span> {{player.name}}
+      </a>
+    </li>
+  </ul>
+
+
