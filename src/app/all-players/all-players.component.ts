@@ -6,18 +6,20 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-players',
   templateUrl: './all-players.component.html',
   styleUrls: ['./all-players.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, CommonModule],
 })
 export class AllPlayersComponent implements OnInit{
   players: Player[] = [];
-  displayedColumns: string[] = ['playerId', 'name', 'position', 'club'];
+  displayedColumns: string[] = ['name', 'position', 'club'];
   dataSource!: MatTableDataSource<Player>;
+  statsDisplayed = 'general';
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -41,10 +43,21 @@ export class AllPlayersComponent implements OnInit{
 
   getAllPlayers(){
     this.PlayersService.getPlayers().subscribe((data: Player[]) => {
+      this.players = data;
       this.dataSource = new MatTableDataSource <Player> (data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       return data
     });
+  }
+
+  toggleGkStats(){
+    //set datasource to gks only
+    this.statsDisplayed = 'gk';
+    this.players = this.players.filter(x => x.position === 'G');
+    this.dataSource = new MatTableDataSource<Player>(this.players);
+    
+    //set displayedColumns
+    this.displayedColumns.push('clean sheets');
   }
 }
