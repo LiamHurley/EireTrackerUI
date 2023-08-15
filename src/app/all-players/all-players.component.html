@@ -1,14 +1,14 @@
 <div>
-  <button mat-raised-button (click)="toggleGkStats()">General Stats</button>
+  <button mat-raised-button (click)="toggleGeneralStats()">General Stats</button>
   <button mat-raised-button (click)="toggleGkStats()">Goalkeeping Stats</button>
-  <button mat-raised-button (click)="toggleGkStats()">Defensive Stats</button>
+  <button mat-raised-button (click)="toggleDefensiveStats()">Defensive Stats</button>
   <button mat-raised-button (click)="toggleGkStats()">Creativity Stats</button>
   <button mat-raised-button (click)="toggleGkStats()">Attacking Stats</button>
 </div>
   
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Ferguson" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Ferguson..." #input>
   </mat-form-field>
   
   <div class="mat-elevation-z8">
@@ -29,7 +29,32 @@
         <td mat-cell *matCellDef="let row"> {{row.club}} </td>
       </ng-container>
 
-      <ng-container *ngIf="statsDisplayed === 'gk'" matColumnDef="clean sheets">
+      <ng-container matColumnDef="overallStatsDto.matchesPlayed">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Appearances </th>
+        <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.matchesPlayed}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="overallStatsDto.minutesPlayed">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Minutes </th>
+        <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.minutesPlayed}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="overallStatsDto.goals">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Goals </th>
+        <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.goals}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="overallStatsDto.goalAssist">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Assists </th>
+        <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.goalAssist}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="overallStatsDto.rating">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Avg Rating </th>
+        <td mat-cell *matCellDef="let row"> {{(row.overallStatsDto.rating / row.overallStatsDto.matchesPlayed).toFixed(2)}} </td>
+      </ng-container>
+
+      <ng-container *ngIf="statsDisplayed === 'gk'" matColumnDef="overallStatsDto.cleanSheets">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Clean Sheets </th>
         <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.cleanSheets}} </td>
       </ng-container>

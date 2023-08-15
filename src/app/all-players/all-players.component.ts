@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { PlayersService } from '../players.service';
 import { Player } from '../shared/models/player';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
@@ -17,7 +17,9 @@ import { CommonModule } from '@angular/common';
 })
 export class AllPlayersComponent implements OnInit{
   players: Player[] = [];
-  displayedColumns: string[] = ['name', 'position', 'club'];
+  displayedGeneralColumns: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.goals', 'overallStatsDto.goalAssist', 'overallStatsDto.rating'];
+  displayedColumns: string[] = this.displayedGeneralColumns;
+  displayedColumnsForGkStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.cleanSheets', 'overallStatsDto.rating'];
   dataSource!: MatTableDataSource<Player>;
   statsDisplayed = 'general';
 
@@ -44,20 +46,43 @@ export class AllPlayersComponent implements OnInit{
   getAllPlayers(){
     this.PlayersService.getPlayers().subscribe((data: Player[]) => {
       this.players = data;
-      this.dataSource = new MatTableDataSource <Player> (data);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
+      this.setTable(data);
       return data
     });
   }
 
   toggleGkStats(){
-    //set datasource to gks only
     this.statsDisplayed = 'gk';
-    this.players = this.players.filter(x => x.position === 'G');
-    this.dataSource = new MatTableDataSource<Player>(this.players);
-    
-    //set displayedColumns
-    this.displayedColumns.push('clean sheets');
+    const data = this.players.filter(x => x.position === 'G');
+    this.setTable(data);
+    this.displayedColumns = this.displayedColumnsForGkStats;
+  }
+
+  toggleGeneralStats(){
+    this.statsDisplayed = 'general';
+    this.setTable(this.players);
+    this.displayedColumns = this.displayedGeneralColumns;
+  }
+
+  toggleDefensiveStats(){
+    this.statsDisplayed = 'def';
+    const data = this.players.filter(x => x.position === 'M' || x.position === 'D');
+    this.setTable(data);
+    this.displayedColumns = this.displayedGeneralColumns;
+  }
+
+  setTable(data: Player[]){
+    this.dataSource = new MatTableDataSource<Player>(data);
+    this.dataSource.sortingDataAccessor = this.pathDataAccessor;
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator.firstPage();
+  }
+
+  pathDataAccessor(item: any, path: string): any {
+    return path.split('.')
+      .reduce((accumulator: any, key: string) => {
+        return accumulator ? accumulator[key] : undefined;
+      }, item);
   }
 }
