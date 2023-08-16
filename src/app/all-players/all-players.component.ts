@@ -20,18 +20,30 @@ export class AllPlayersComponent implements OnInit{
   displayedGeneralColumns: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.goals', 'overallStatsDto.goalAssist', 'overallStatsDto.rating'];
   displayedColumns: string[] = this.displayedGeneralColumns;
   displayedColumnsForGkStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.cleanSheets', 'overallStatsDto.rating'];
+  displayedColumnsForDefStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 
+                                          'overallStatsDto.duelWon', 'overallStatsDto.aerialWon', 'overallStatsDto.totalTackle', 'overallStatsDto.outfielderBlock',
+                                          'overallStatsDto.errorLeadToAShot', 'overallStatsDto.rating'];
+  displayedColumnsForCreativeStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 
+                                                'overallStatsDto.goalAssist', 'overallStatsDto.totalPass', 'overallStatsDto.accuratePass', 'overallStatsDto.keyPass',
+                                                'overallStatsDto.accurateLongBalls', 'overallStatsDto.rating'];
+  displayedColumnsForAttackingStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 
+                                                'overallStatsDto.goals', 'overallStatsDto.totalShotsTaken', 'overallStatsDto.onTargetScoringAttempt', 
+                                                'overallStatsDto.bigChanceMissed', 'overallStatsDto.rating'];
   dataSource!: MatTableDataSource<Player>;
   statsDisplayed = 'general';
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  @ViewChild(MatSort)
-  sort!: MatSort;
+  @ViewChild(MatSort, {static: false}) set content(sort: MatSort) {
+    this.dataSource.sort = sort;
+    this.dataSource.sortingDataAccessor = this.pathDataAccessor;
+  }
 
   constructor(private PlayersService: PlayersService){  }
 
   ngOnInit(): void {
-    this.getAllPlayers(); 
+    this.getAllPlayers();
+    this.dataSource = new MatTableDataSource<Player>(this.players); 
   }
 
   applyFilter(event: Event) {
@@ -68,13 +80,25 @@ export class AllPlayersComponent implements OnInit{
     this.statsDisplayed = 'def';
     const data = this.players.filter(x => x.position === 'M' || x.position === 'D');
     this.setTable(data);
-    this.displayedColumns = this.displayedGeneralColumns;
+    this.displayedColumns = this.displayedColumnsForDefStats;
+  }
+
+  toggleCreativeStats(){
+    this.statsDisplayed = 'creative';
+    const data = this.players.filter(x => x.position !== 'G');
+    this.setTable(data);
+    this.displayedColumns = this.displayedColumnsForCreativeStats;
+  }
+
+  toggleAttackingStats(){
+    this.statsDisplayed = 'att';
+    const data = this.players.filter(x => x.position !== 'G');
+    this.setTable(data);
+    this.displayedColumns = this.displayedColumnsForAttackingStats;
   }
 
   setTable(data: Player[]){
-    this.dataSource = new MatTableDataSource<Player>(data);
-    this.dataSource.sortingDataAccessor = this.pathDataAccessor;
-    this.dataSource.sort = this.sort;
+    this.dataSource.data = data;
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.firstPage();
   }
