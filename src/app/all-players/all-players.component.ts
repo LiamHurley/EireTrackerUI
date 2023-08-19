@@ -45,6 +45,7 @@ export class AllPlayersComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllPlayers();
+    console.log(this.players);
     this.dataSource = new MatTableDataSource<Player>(this.players); 
   }
 
@@ -100,6 +101,7 @@ export class AllPlayersComponent implements OnInit{
   }
 
   setTable(data: Player[]){
+    console.log(data);
     this.dataSource.data = data;
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.firstPage();

@@ -93,11 +93,11 @@
         "touches": 31,
         "rating": 6.5,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -141,11 +141,11 @@
         "touches": 26,
         "rating": 6.5,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -189,11 +189,11 @@
         "touches": 17,
         "rating": 6.1,
         "totalOffside": 2,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -237,11 +237,11 @@
         "touches": 21,
         "rating": 6.7,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -285,11 +285,11 @@
         "touches": 26,
         "rating": 7.1,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -333,11 +333,11 @@
         "touches": 25,
         "rating": 6.5,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -381,11 +381,11 @@
         "touches": 29,
         "rating": 7.7,
         "totalOffside": 1,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
-        "awayScore": 0,
-        "homeAway": null,
+        "awayScore": 1,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -429,11 +429,11 @@
         "touches": 33,
         "rating": 6.7,
         "totalOffside": 2,
-        "homeTeam": null,
-        "awayTeam": null,
-        "homeScore": 0,
-        "awayScore": 0,
-        "homeAway": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
+        "homeScore": 2,
+        "awayScore": 1,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -477,11 +477,11 @@
         "touches": 23,
         "rating": 6.7,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       },
       {
@@ -525,11 +525,11 @@
         "touches": 47,
         "rating": 8.2,
         "totalOffside": 1,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
-        "awayScore": 0,
-        "homeAway": null,
+        "awayScore": 1,
+        "homeAway": "away",
         "playerId": 88169
       },
       {
@@ -573,11 +573,11 @@
         "touches": 20,
         "rating": 6.8,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
-        "homeScore": 0,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
+        "homeScore": 1,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "home",
         "playerId": 88169
       }
     ]

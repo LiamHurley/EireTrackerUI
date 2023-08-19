@@ -93,11 +93,11 @@
         "touches": 44,
         "rating": 6.6,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -141,11 +141,11 @@
         "touches": 34,
         "rating": 6.8,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -189,11 +189,11 @@
         "touches": 39,
         "rating": 6.3,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -237,11 +237,11 @@
         "touches": 39,
         "rating": 7,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -285,11 +285,11 @@
         "touches": 44,
         "rating": 7,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -333,11 +333,11 @@
         "touches": 40,
         "rating": 6.5,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -381,11 +381,11 @@
         "touches": 47,
         "rating": 6.6,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -429,11 +429,11 @@
         "touches": 40,
         "rating": 6.5,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -477,11 +477,11 @@
         "touches": 78,
         "rating": 6.4,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -525,11 +525,11 @@
         "touches": 46,
         "rating": 7,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {
@@ -573,11 +573,11 @@
         "touches": 43,
         "rating": 7.7,
         "totalOffside": 0,
-        "homeTeam": null,
-        "awayTeam": null,
+        "homeTeam": "Team A",
+        "awayTeam": "Team B",
         "homeScore": 0,
         "awayScore": 0,
-        "homeAway": null,
+        "homeAway": "ok",
         "playerId": 936719
       },
       {

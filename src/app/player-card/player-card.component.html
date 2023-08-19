@@ -1,1 +1,46 @@
-<p>{{player.name}}</p>
+<mat-card>
+    <mat-card-header> {{player.name}} </mat-card-header>
+    <mat-card-content> Club: {{player.club}} </mat-card-content>
+    <mat-card-content> Appearances: {{player.overallStats.matchesPlayed}} </mat-card-content>
+    <mat-card-content> Goals: {{player.overallStats.goals}} </mat-card-content>
+    <mat-card-content> Assists: {{player.overallStats.goalAssist}} </mat-card-content>
+    <mat-card-content>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+                  <ng-container matColumnDef="matchDate">
+                    <th mat-header-cell *matHeaderCellDef > Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.matchDate}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="minutesPlayed">
+                    <th mat-header-cell *matHeaderCellDef > Minutes </th>
+                    <td mat-cell *matCellDef="let row"> {{row.minutesPlayed}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="goals">
+                    <th mat-header-cell *matHeaderCellDef > Goals </th>
+                    <td mat-cell *matCellDef="let row"> {{row.goals}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="goalAssist">
+                    <th mat-header-cell *matHeaderCellDef > Assists </th>
+                    <td mat-cell *matCellDef="let row"> {{row.goalAssist}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="totalPass">
+                    <th mat-header-cell *matHeaderCellDef > Passes </th>
+                    <td mat-cell *matCellDef="let row"> {{row.totalPass}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="rating">
+                    <th mat-header-cell *matHeaderCellDef > Rating </th>
+                    <td mat-cell *matCellDef="let row"> {{row.rating}} </td>
+                  </ng-container>
+        
+                  <tr mat-header-row *matHeaderRowDef="outfieldPerformanceTableColumnNames"></tr>
+                  <tr mat-row *matRowDef="let row; columns: outfieldPerformanceTableColumnNames;"
+                  [ngStyle]="{ 'background-color': (row.homeAway === 'home' && row.homeScore > row.awayScore) 
+                  || (row.homeAway === 'away' && row.awayScore > row.homeScore) ? 'green' : 
+                  (row.homeScore === row.awayScore ? 'yellow' : 'red') }">
+                  </tr>
+            </table>
+        
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page of performances"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>
