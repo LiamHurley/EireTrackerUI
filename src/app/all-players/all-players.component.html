@@ -1,10 +1,10 @@
-<div>
-  <button mat-raised-button (click)="toggleGeneralStats()">General Stats</button>
-  <button mat-raised-button (click)="toggleGkStats()">Goalkeeping Stats</button>
-  <button mat-raised-button (click)="toggleDefensiveStats()">Defensive Stats</button>
-  <button mat-raised-button (click)="toggleCreativeStats()">Creativity Stats</button>
-  <button mat-raised-button (click)="toggleAttackingStats()">Attacking Stats</button>
-</div>
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="General Stats" (click)="toggleGeneralStats()">General Stats</mat-button-toggle>
+  <mat-button-toggle value="Goalkeeping Stats" (click)="toggleGkStats()">Goalkeeping Stats</mat-button-toggle>
+  <mat-button-toggle value="Defensive Stats" (click)="toggleDefensiveStats()">Defensive Stats</mat-button-toggle>
+  <mat-button-toggle value="Creativity Stats" (click)="toggleCreativeStats()">Creativity Stats</mat-button-toggle>
+  <mat-button-toggle value="Attacking Stats" (click)="toggleAttackingStats()">Attacking Stats</mat-button-toggle>
+</mat-button-toggle-group>
   
   <mat-form-field>
     <mat-label>Filter</mat-label>
