@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AllPlayersComponent } from './all-players/all-players.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PlayerCardComponent } from './player-card/player-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     AllPlayersComponent,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PlayerCardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
