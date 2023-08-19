@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Player } from './shared/models/player';
+import { PlayerWithStatsAndPerformances } from './shared/models/player-with-stats-and-performances';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -9,7 +10,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class PlayersService {
 
-  private playersUrl = 'https://localhost:7247/api/Players/overall';
+  private playersWithOverallStatsUrl = 'https://localhost:7247/api/Players/overall';
+  private playerByIdWithStatsAndPerformancesUrl = 'https://localhost:7247/api/Players';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,11 +20,17 @@ export class PlayersService {
   constructor(private http: HttpClient) { }
 
   getPlayers(): Observable<Player[]>{
-    return this.http.get<Player[]>(this.playersUrl)
-    .pipe(
+    return this.http.get<Player[]>(this.playersWithOverallStatsUrl).pipe(
       catchError(this.handleError<Player[]>('getPlayers', []))
-    );;
-  }   
+    );
+  }
+  
+  getPlayerById(playerId: number): Observable<PlayerWithStatsAndPerformances>{
+    const url = `${this.playerByIdWithStatsAndPerformancesUrl}/${playerId}`;
+    return this.http.get<PlayerWithStatsAndPerformances>(url).pipe(
+      catchError(this.handleError<PlayerWithStatsAndPerformances>(`getPlayerById id=${playerId}`))
+    );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

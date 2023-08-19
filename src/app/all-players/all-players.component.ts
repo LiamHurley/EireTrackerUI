@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlayersService } from '../players.service';
 import { Player } from '../shared/models/player';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
