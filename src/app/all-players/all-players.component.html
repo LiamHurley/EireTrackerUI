@@ -44,9 +44,9 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Assists </th>
         <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.goalAssist}} </td>
       </ng-container>
-      <ng-container matColumnDef="overallStatsDto.rating">
+      <ng-container matColumnDef="overallStatsDto.averageRating">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Avg Rating </th>
-        <td mat-cell *matCellDef="let row"> {{ (row.overallStatsDto.rating / row.overallStatsDto.matchesPlayed).toFixed(2) }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.averageRating }} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -80,9 +80,9 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Minutes </th>
         <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.minutesPlayed}} </td>
       </ng-container>      
-      <ng-container matColumnDef="overallStatsDto.rating">
+      <ng-container matColumnDef="overallStatsDto.averageRating">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Avg Rating </th>
-        <td mat-cell *matCellDef="let row"> {{(row.overallStatsDto.rating / row.overallStatsDto.matchesPlayed).toFixed(2)}} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.averageRating }} </td>
       </ng-container>
       <ng-container matColumnDef="overallStatsDto.cleanSheets">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Clean Sheets </th>
@@ -120,17 +120,17 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Minutes </th>
         <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.minutesPlayed}} </td>
       </ng-container>      
-      <ng-container matColumnDef="overallStatsDto.rating">
+      <ng-container matColumnDef="overallStatsDto.averageRating">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Avg Rating </th>
-        <td mat-cell *matCellDef="let row"> {{ (row.overallStatsDto.rating / row.overallStatsDto.matchesPlayed).toFixed(2) }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.averageRating }} </td>
       </ng-container>
-      <ng-container matColumnDef="overallStatsDto.duelWon">
+      <ng-container matColumnDef="overallStatsDto.duelWonPercentage">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Duels Won % </th>
-        <td mat-cell *matCellDef="let row"> {{ ((row.overallStatsDto.duelWon / row.overallStatsDto.totalDuels) * 100).toFixed(2) }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.duelWonPercentage }} </td>
       </ng-container>
-      <ng-container matColumnDef="overallStatsDto.aerialWon">
+      <ng-container matColumnDef="overallStatsDto.aerialDuelsWonPercentage">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Aerials Won % </th>
-        <td mat-cell *matCellDef="let row"> {{ ((row.overallStatsDto.aerialWon / row.overallStatsDto.totalAerialDuels) * 100).toFixed(2) }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.aerialDuelsWonPercentage }} </td>
       </ng-container>
       <ng-container matColumnDef="overallStatsDto.totalTackle">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Succ. Tackles </th>
@@ -176,9 +176,9 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Minutes </th>
         <td mat-cell *matCellDef="let row"> {{row.overallStatsDto.minutesPlayed}} </td>
       </ng-container>      
-      <ng-container matColumnDef="overallStatsDto.rating">
+      <ng-container matColumnDef="overallStatsDto.averageRating">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Avg Rating </th>
-        <td mat-cell *matCellDef="let row"> {{ (row.overallStatsDto.rating / row.overallStatsDto.matchesPlayed).toFixed(2) }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.averageRating }} </td>
       </ng-container>
       <ng-container matColumnDef="overallStatsDto.goalAssist">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Assists </th>
@@ -188,17 +188,17 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Att. Passes </th>
         <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.totalPass }} </td>
       </ng-container>
-      <ng-container matColumnDef="overallStatsDto.accuratePass">
+      <ng-container matColumnDef="overallStatsDto.passAccuracy">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Pass Accuracy % </th>
-        <td mat-cell *matCellDef="let row"> {{ ((row.overallStatsDto.accuratePass / row.overallStatsDto.totalPass) * 100).toFixed(2) }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.passAccuracy }} </td>
       </ng-container>
       <ng-container matColumnDef="overallStatsDto.keyPass">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Key Passes </th>
         <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.keyPass }} </td>
       </ng-container>
-      <ng-container matColumnDef="overallStatsDto.accurateLongBalls">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pass Accuracy % </th>
-        <td mat-cell *matCellDef="let row"> {{ ((row.overallStatsDto.accurateLongBalls / row.overallStatsDto.totalLongBalls) * 100).toFixed(2) }} </td>
+      <ng-container matColumnDef="overallStatsDto.longBallAccuracy">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Long Ball Accuracy % </th>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.longBallAccuracy }} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -248,9 +248,9 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Big Chances Missed </th>
         <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.bigChanceMissed }} </td>
       </ng-container>
-      <ng-container matColumnDef="overallStatsDto.rating">
+      <ng-container matColumnDef="overallStatsDto.averageRating">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Avg Rating </th>
-        <td mat-cell *matCellDef="let row"> {{ (row.overallStatsDto.rating / row.overallStatsDto.matchesPlayed).toFixed(2) }} </td>
+        <td mat-cell *matCellDef="let row"> {{ row.overallStatsDto.averageRating }} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

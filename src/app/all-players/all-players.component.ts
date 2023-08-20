@@ -19,18 +19,20 @@ import { RouterLink } from '@angular/router';
 })
 export class AllPlayersComponent implements OnInit{
   players: Player[] = [];
-  displayedGeneralColumns: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.goals', 'overallStatsDto.goalAssist', 'overallStatsDto.rating'];
+  displayedGeneralColumns: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.goals', 
+                                      'overallStatsDto.goalAssist', 'overallStatsDto.averageRating'];
   displayedColumns: string[] = this.displayedGeneralColumns;
-  displayedColumnsForGkStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.cleanSheets', 'overallStatsDto.rating'];
+  displayedColumnsForGkStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 'overallStatsDto.cleanSheets', 
+                                          'overallStatsDto.averageRating'];
   displayedColumnsForDefStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 
-                                          'overallStatsDto.duelWon', 'overallStatsDto.aerialWon', 'overallStatsDto.totalTackle', 'overallStatsDto.outfielderBlock',
-                                          'overallStatsDto.errorLeadToAShot', 'overallStatsDto.rating'];
+                                          'overallStatsDto.duelWonPercentage', 'overallStatsDto.aerialDuelsWonPercentage', 'overallStatsDto.totalTackle', 'overallStatsDto.outfielderBlock',
+                                          'overallStatsDto.errorLeadToAShot', 'overallStatsDto.averageRating'];
   displayedColumnsForCreativeStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 
-                                                'overallStatsDto.goalAssist', 'overallStatsDto.totalPass', 'overallStatsDto.accuratePass', 'overallStatsDto.keyPass',
-                                                'overallStatsDto.accurateLongBalls', 'overallStatsDto.rating'];
+                                                'overallStatsDto.goalAssist', 'overallStatsDto.totalPass', 'overallStatsDto.passAccuracy', 'overallStatsDto.keyPass',
+                                                'overallStatsDto.longBallAccuracy', 'overallStatsDto.averageRating'];
   displayedColumnsForAttackingStats: string[] = ['name', 'position', 'club', 'overallStatsDto.matchesPlayed', 'overallStatsDto.minutesPlayed', 
                                                 'overallStatsDto.goals', 'overallStatsDto.totalShotsTaken', 'overallStatsDto.onTargetScoringAttempt', 
-                                                'overallStatsDto.bigChanceMissed', 'overallStatsDto.rating'];
+                                                'overallStatsDto.bigChanceMissed', 'overallStatsDto.averageRating'];
   dataSource!: MatTableDataSource<Player>;
   statsDisplayed = 'general';
 

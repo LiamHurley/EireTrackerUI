@@ -23,21 +23,21 @@ export class PlayersService {
   constructor(private http: HttpClient) { }
 
   getPlayers(): Observable<Player[]>{
-    if(environment.mockedBackend){
-      return of(mockedOverallData);
-    }
+    // if(environment.mockedBackend){
+    //   return of(mockedOverallData);
+    // }
     return this.http.get<Player[]>(this.playersWithOverallStatsUrl).pipe(
       catchError(this.handleError<Player[]>('getPlayers', []))
     );
   }
   
   getPlayerById(playerId: number): Observable<PlayerWithStatsAndPerformances>{
-    if(environment.mockedBackend){
-      if(playerId !== 788128)
-        return of(mockedOutfielderData);
-      else
-        return of(mockedGkData);
-    }
+    // if(environment.mockedBackend){
+    //   if(playerId !== 788128)
+    //     return of(mockedOutfielderData);
+    //   else
+    //     return of(mockedGkData);
+    // }
     const url = `${this.playerByIdWithStatsAndPerformancesUrl}/${playerId}`;
     return this.http.get<PlayerWithStatsAndPerformances>(url).pipe(
       catchError(this.handleError<PlayerWithStatsAndPerformances>(`getPlayerById id=${playerId}`))

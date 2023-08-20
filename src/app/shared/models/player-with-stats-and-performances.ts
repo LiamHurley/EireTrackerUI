@@ -4,11 +4,11 @@ export interface PlayerWithStatsAndPerformances {
     dateOfBirth: string
     club: string
     position: string
-    overallStats: OverallStats
+    overallStats: OverallStatsDto
     performances: Performance[]
   }
   
-  export interface OverallStats {
+  export interface OverallStatsDto {
     overallStatsId: number
     matchesPlayed: number
     savedShotsFromInsideTheBox: number
@@ -31,6 +31,7 @@ export interface PlayerWithStatsAndPerformances {
     totalPass: number
     goalAssist: number
     accuratePass: number
+    passAccuracy: number
     totalLongBalls: number
     accurateLongBalls: number
     totalCross: number
