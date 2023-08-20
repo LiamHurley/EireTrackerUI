@@ -5,19 +5,20 @@ import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card'
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { NgStyle } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-player-card',
   templateUrl: './player-card.component.html',
   styleUrls: ['./player-card.component.css'],
   standalone: true,
-  imports: [MatCardModule, MatTableModule, MatPaginatorModule, NgStyle]
+  imports: [MatCardModule, MatTableModule, MatPaginatorModule, NgStyle, CommonModule]
 })
 export class PlayerCardComponent implements OnInit, AfterViewInit{
   player!: PlayerWithStatsAndPerformances;
   dataSource!: MatTableDataSource<Performance>;
-  outfieldPerformanceTableColumnNames = ['matchDate', 'goals', 'goalAssist', 'totalPass', 'minutesPlayed', 'rating'];
+  outfieldPerformanceTableColumnNames = ['matchDate', 'homeTeam', 'homeAway', 'homeScore', 'goals', 'goalAssist', 'totalPass', 'minutesPlayed', 'rating'];
+  gkPerformanceTableColumnNames = ['matchDate', 'homeTeam', 'homeAway', 'homeScore', 'saves', 'rating'];
 
   constructor(
     private route: ActivatedRoute,
@@ -29,18 +30,18 @@ export class PlayerCardComponent implements OnInit, AfterViewInit{
   
   ngOnInit(): void {
     this.getPlayerById();
-    this.player.performances.reverse();
-    this.dataSource = new MatTableDataSource<Performance>(this.player.performances);
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    console.log('after view')
   }
 
   getPlayerById(): void{
     const id = parseInt(this.route.snapshot.paramMap.get('playerId')!, 10);
-    this.PlayersService.getPlayerById(id)
-      .subscribe(player => this.player = player);
+    this.PlayersService.getPlayerById(id).subscribe((data: PlayerWithStatsAndPerformances) => {
+        this.player = data;
+        this.dataSource = new MatTableDataSource<Performance>(this.player.performances.reverse());
+        return data
+      });  
   }
 }

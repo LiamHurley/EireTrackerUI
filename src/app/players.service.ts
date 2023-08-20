@@ -23,7 +23,6 @@ export class PlayersService {
   constructor(private http: HttpClient) { }
 
   getPlayers(): Observable<Player[]>{
-    console.log(environment.mockedBackend);
     if(environment.mockedBackend){
       return of(mockedOverallData);
     }
